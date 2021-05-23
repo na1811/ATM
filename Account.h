@@ -5,32 +5,42 @@
 #include<vector>
 #include<string>
 #include<fstream>
+#include<ctime>
 
 using namespace std;
+
 
 class Account
 {
 private:
     string username;
     string password;
+    string id;
     int sodu;
-    bool active;
-    int numFail;
+    int nsai;
 public:
-    Account(string usn, string pw);
+    Account(string _id, string usn, string pw);
     Account();
     ~Account() {
 
     }
-    void creatData(string usn, string pw, int sd);
+    void creatData(string usn, string _id, string pw, int sd, int ns);
     bool login();
     string getUsername() const { return username; }
+    string getID () const {return id; }
     string getPassword() const { return password; }
     string getSoDu() const { return to_string(sodu);}
-    void guiTien();
+    string getNsai() const { return to_string(nsai); }
+    void guiTien( int bank[]);
     void thongTin();
     int chuyenTien();
     bool nhanTien(int tien);
+    void rutTien(int bank[]);
+    void inLichSu();
+    void vietLichSu(string s);
+    string thoidiem();
+    void khoaTK( int &ktk);
+    void doiMK( int &dmk );
 };
 
 #endif // ACCOUNT_H
